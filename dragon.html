@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Dragon Game</title>
+
+	<style>
+		body{
+			text-align: center;
+		}
+		#next {
+			visibility: hidden;
+		}
+		div#stats > div {
+			display: inline-block;
+			padding: 0 5px;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		var level = 1
+		var attackTally = 0
+		var maxAttacks = 6
+		var successes = 0
+		var failures = 0
+		var chances = 36
+		var lives = 1
+		var playAgain = document.getElementById("next");
+		// x = 48-level
+		// x = x-level
+		// var added lives = Math.ceil(1+((36-x)/36));
+
+		var outOf36 = [35,33,30,35,19,14,10,6,3,1]
+		
+
+		function rollDice(){
+			attackTally++
+			document.getElementById('attacks').innerHTML = `ATTACKS: ${attackTally}`;
+			// console.log("User pressed the roll button!")
+			// get a random number between 1 nand 6 for both die
+			var rand1 = Math.ceil(Math.random() * 6);
+			var rand2 = Math.ceil(Math.random() * 6);
+			// the dice images are dN.gif...we have 2 random numbers for N
+			var dice = document.getElementById('dice');
+			console.dir(dice);
+			var image1 = dice.children[0];
+			var image2 = dice.children[1];
+			image1.src = `dragon-assets/d${rand1}.gif`;
+			image2.src = `dragon-assets/d${rand2}.gif`;
+		
+
+			if(rand1 + rand2 >= level + 4){
+				// gameOver();
+				// element.addEventListener(event, function, useCapture)
+				document.getElementById('dragon').children[0].src = "http://r.fod4.com/c=sq/s=w1000,pd1/o=80/http://p.fod4.com/p/media/90d91e8fe4/c=sq/s=w700/o=90/UMWMV2UbTAmX8DnBvKDg_r1.jpg";
+				document.getElementById('message').innerHTML = "You have defeated the dragon!";
+				var fight = document.getElementById("fight");
+				fight.disabled = true
+				document.getElementById("next").style.visibility = "visible";
+				// lives = lives + (36 - outOf36[level] - attackTally)
+				level++
+			}
+		}
+
+		function levelUp(){
+			maxAttacks = maxAttacks + Math.ceil(36 / outOf36[level])
+
+			attackTally = 0
+			document.getElementById('current-level').innerHTML = `LEVEL: ${level}`;
+			document.getElementById('attacks').innerHTML = `ATTACKS: ${attackTally}`;
+			document.getElementById('current-lives').innerHTML = `LIVES: ${lives}`;
+			fight.disabled = false;
+			document.getElementById("next").style.visibility = "hidden";
+	 		document.getElementById('dragon').children[0].src = "dragon-assets/dragon.png";
+			document.getElementById('message').innerHTML = `The great and terrible green dragon returns. Roll to fight. You must roll ${level+4} or higher to defeat it.`;
+		}
+
+		function newGame(){
+			level = 1;
+			fight.disabled = false;
+			document.getElementById("next").style.visibility = "hidden";
+	 		document.getElementById('dragon').children[0].src = "dragon-assets/dragon.png";
+			document.getElementById('message').innerHTML = `You have encountered the great and terrible green dragon. Roll to fight. You must roll ${level+4} or higher to defeat it.`;
+		}
+
+	</script>
+
+</head>
+<body>
+	
+	<div id="game-wrapper">
+		<div id="stats">
+			<div id="current-level">LEVEL: 0</div>
+			<div id="current-lives">LIVES: 1</div>
+			<div id="attacks">ATTACKS: 0</div>
+		</div>
+		<div id="dragon">
+			<img src="dragon-assets/dragon.png"/>
+		</div>
+		<div id="message">
+			You have encountered the great and terrible green dragon. Roll to fight. You must roll 5 or higher to defeat it.
+		</div>
+		<div id="dice">
+			<img src="dragon-assets/d1.gif"/>
+			<img src="dragon-assets/d1.gif"/>
+		</div>
+		<div id="roll">
+			<button id="fight" onclick="rollDice();">Fight!</button>
+		</div>
+		<div id="next">
+			<button id="next-level" onclick="levelUp();">Level Up</button>
+			<button id="reset" onclick="newGame();">Start Over</button>
+		</div>
+
+	</div>
+
+</body>
+</html>

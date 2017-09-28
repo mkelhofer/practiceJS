@@ -1,0 +1,85 @@
+<script type="text/javascript">
+	var students = [];
+	students = ["Jennifer", "Nicholas", "Zach"];
+	//append = push
+	students.push("Taylor");
+	students.push("Hayes");
+
+	 // every array has length property...always accessible
+	 console.log(students.length)
+
+	 // first index is 0
+	 // any data type can go in any index....
+	 // 1. String
+	 // 2. Array
+	 // 3. Object
+	 // 4. Boolean
+	 // 5. Number
+
+	 var nfcSouth = [
+		 'Falcons',
+		 'Saints',
+		 'Bucs',
+		 'Panthers'
+	 ]
+
+	 // to access an index of an array, use [n]
+	 console.log(nfcSouth[0]) //Falcons
+	 console.log(nfcSouth[6]) //undefined (Python would say index is out of bounds)
+	 console.log(nfcSouth[-1]) //undefined (Python grabs from end)
+	 // JS requires you use length method to grab from end
+
+	 nfcSouth.push("Cowboys");
+
+	 //to reomve the last element in array use .pop()
+	 // .pop() returns value of removed item not array itself
+	 nfcSouth.pop();
+	 console.log(nfcSouth.pop());
+
+	 //to remove first element in array use .shift()
+
+	 // slice is like list[2:5]...gets a copu, does not change the original
+	 // and you tell it x and y where to start and finish (includes x but not y)
+
+	 // splice(index, howmanyremoved, newitem1, ..., newitemx)
+
+	 // while loop....
+	 numberGuessed = false;
+	 while(!numberGuessed){
+	 	varprompt("Guess a number")
+	 }
+
+	 // for loops...
+	 // Args:
+	 // 1st - iterator
+	 // 2nd - condition to keep running
+	 // 4rd - step at the end of the loop
+	 for(let i = 0; i < 100; i++){
+	 	console.log(i);
+	 }
+	 // let is an ES6 concept
+	 // let will make a variable that lasts from { to } (i.e. 57-59)
+
+	 // Strings as arrays
+	 // A string is a fancy array >>> an array is a fancy object (sort of)
+	 var name = "Jong";
+	 for(let i = 0; i < name.length; i++ ){
+	 	console.log(name[i]);
+	 }
+
+	 // A def in python is a function in JS
+	 // instead of : we will use { }
+	 function sayHello(){
+	 	console.log("Hello");
+	 }
+	 sayHello();
+
+	 function sayHelloName(a){
+	 	
+	 }
+
+	 
+
+
+
+</script>

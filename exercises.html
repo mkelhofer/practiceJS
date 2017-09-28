@@ -1,0 +1,94 @@
+<!-- Exercises:
+1.Given a number between 0 and 6 representing the days of the week, print "Go to work." if it's a work day and "Sleep in." if it's a weekend day. You can set up an array for the days of the week, or for extra credit, you can check out the JS Date object here).
+ 
+2. Given a month number, between 1 and 12, and a year, print the number of days in that month - accounting for leap years.
+ 
+3. Given the amount of a bill as a number, and a level of service - which can be "good", "fair", or "bad", print the total bill with the tip included. The amount of tip given for each level of service is defined by:
+ 
+"good" -> 20%
+"fail" -> 15%
+"bad"  -> 10%
+ 
+Extra: Add to "Tip Calculator"...you are also given the number of people to divide the total into. Print the amount for each person to pay.
+ 
+Convert it to a function splitAmount that takes the bill amount and the level of service, and the number of people to split the bill between. Return the final amount for each person. -->
+
+<script type="text/javascript">
+// Weekday
+	function isTodayAWorkday() {
+		var d = new Date();
+		var today = d.getDay();
+		if((today == 0) || (today== 6)){
+			document.write("Stay home!")
+		}
+		else{
+			document.write("Go to work!")
+		}
+	}
+
+	isTodayAWorkday();
+
+
+	function leapYear() {
+		if(((year % 4 == 0) && (year % 100 != 0)) || or (year & 400 ==0){
+			return true
+		}
+		else{
+			return false
+		}
+	}
+// Days in Month
+	// DaysInMonthsCheat[0,31,28,31,30,31,30,31,31,30,31,30,31]
+	function daysInMonth(month,year) {
+		if(month >= 8){
+			if(month % 2 == 0){
+				return 31
+			}
+			else{
+				return 30
+			}
+		}
+		else if((month < 8) && (month != 2)){
+			if(month % 2 == 0){
+				return 30
+			}
+			else{
+				return 31
+			}
+		}
+		else(month==2){
+				if(leapYear(year)==true){
+				return 29
+			}
+			else{
+				return 28
+			}
+		}
+	}
+
+	// if month % 2 == 1
+	// 	if < 8
+	// 		return 31
+	// 	if > 8
+	// 		return 30
+	// else
+	// 	if >7
+	// 		return 31
+	// 	if <7
+	// 		if = 2
+	// 			if leapYear true
+	// 				29
+	// 			else 
+	// 				28
+	// 		else
+	// 			return 30
+
+// tip calculator
+var good = 120
+var fair = 115
+var poor = 110
+function(bill,serviceLevel,splitWays)
+
+
+
+</script>

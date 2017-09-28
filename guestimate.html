@@ -1,0 +1,40 @@
+<script type="text/javascript">
+
+	alert("Guestimate");
+	// var someNumber = prompt("Enter a number between 1 and 10", "3");
+	var userNumber = Number(prompt("Enter a number between 1 and 10"));
+	// random = Math.random() ;
+	// console.log(random);
+	var compNumber = Math.ceil(Math.random() * 10);
+	// console.log(compNumber);
+	var tries = 1
+
+	while (tries < 20) {
+		if(userNumber == compNumber){
+			if(tries == 1){
+				alert("Psychic!");
+			}
+			else{
+				alert("It's a match!");
+			}
+			tries = 21;
+		}
+		else{
+			if(tries == 1){
+				origDifference = Math.abs(compNumber - userNumber);
+				alert("No match...Try again!");
+			}
+			else{
+				currentDifference = Math.abs(compNumber - userNumber);
+				if(origDifference > currentDifference){
+					alert("Getting warmer!");
+				}
+				else if(origDifference < currentDifference){
+					alert("Oh no! Getting colder");
+				}
+			}
+			userNumber = Number(prompt("Enter a number between 1 and 10"));
+			tries++;
+		}
+	}
+</script>

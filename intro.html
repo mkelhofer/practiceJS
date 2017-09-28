@@ -1,0 +1,123 @@
+<script type="text/javascript">
+	// works same as CSS where can embed files so not all in one place
+
+	// Print stuff....
+	// semi-colons are option (like Python)
+	alert("Hello, Alert");
+	// EVERYTHING inside the browser belongs to the 'window' object
+	// can rewrite as window.alert("Hello, World");
+
+	// use the console to print stuff - will use all the time
+	console.log("Hello, Console");
+
+	// actually write to the window itself.  Document object is where all HTML is at
+	document.write("Hello, Document");
+
+	// VARIABLES
+	// same as every other language...place to stash something (number, string, array, object)
+	// data-types available
+	// 1. String
+	// 2. Number - JS has only the Number data type
+	// 2a. Float
+	// 2b. Integer
+	// 3. Boolean
+	// 4. Array
+	// 5. objects (dictionary/Object)
+
+	// JS variables created dynamically (like Python) but need to start with var when first created/used
+	// strict mode [by adding "use strict;"] only lets you use declared variables
+
+	// var means I am declaring a variable in the current scope
+	// current scope might be:
+	// 1. Window (global)
+	// 2. function
+	// 3. protoytpe method
+	// Only use var one time...once its declared you dont declare it again
+
+	// In Python used snake_case...in JS use camelCase
+
+	var fullName = "Mikayla Kelhofer";
+	console.log(fullName);
+	fullName = "Someone Else";
+	console.log(fullName); 
+
+
+	// Concantenate variables w/ +
+	// fullName = firstName + " " + nickName + " " + lastName
+	// OR>>>>>>>
+	// template literals (ES6)
+	// works like "%s" in Python
+	// fullName = `${firstName} "${nickName}" ${lastName}`
+	// must use ` (above tab key)
+	
+	// NUMBERS
+	var theYear = 2017; //Integer
+	var pi = 3.14 //Float
+	// In JS you can get dataytpe by running
+	console.log(typeof(theYear));
+	console.log(typeof(pi));
+	var theYearAsAString = "2017";
+	console.log(typeof(theYearAsAString));
+
+	// MATH [ + - * / % ]
+	var twoYearsAgo = theYear - 2;
+	var twoYearsFromNow = theYear + 2;
+	var stringsAlwaysWin = theYearAsAString + 2;
+	//treats number like string and concantenates 
+	console.log(twoYearsAgo);
+	console.log(twoYearsFromNow);
+	console.log(stringsAlwaysWin);
+
+	// BOOLEANS
+	var theTruth = true;
+	console.log(typeof(theTruth));
+	var theLie = false;
+
+	// Incrementing...
+	var i = 1;
+	i++; //i += 1 ***python way still works (use for steps =/= 1), but ++ is short hand for adding by 1
+	i--; //i -= 1
+	//this is postfixing
+	console.log(i);  //prints i
+	console.log(i++); //prints i
+	//prefixing
+	console.log(i); //pritns i 
+	console.log(++i); //prints i + 1
+
+// Order of operations same as Python PEMDAS, L>R, () overrides
+
+// Prompt method
+// belongs to the window (Just like alert())
+// take 2 arguements - 1. message to display 2. (optional) default respose
+// normally will use forms (inputs)...dont want to stop JS so dont usually use prompt
+
+var getUserName = prompt("What is your name?", "Robot");
+
+
+// CONDITIONALS
+var classSize = 19; //number
+var userResponse = prompt("How big is your class?");
+// = is an assignment of right item to left item
+// == is a comparison of right item to left item
+// === is same as == but also checks for data type equality
+
+if(userResponse == classSize){
+	console.log("You are in the Sept class!")
+}
+// else if{}
+// else{}
+
+// prompts are always strings must convert for ===
+// var userResponseAsANumber = Number(userResponse);
+// // or...
+// var userResponse = Number(prompt("How big is your class?"));
+
+
+// import Math .... not necessary!
+var round = Math.round(10.2);
+console.log(round);
+// random (0, 1) non inclusive
+//
+
+
+</script>
